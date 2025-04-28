@@ -454,7 +454,7 @@ h6 {
 
 .footer .social-links a {
   color: var(--contrast-color);
-  background-color: var(--accent-color);
+  background-color: #2e3e4b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -468,7 +468,7 @@ h6 {
 
 .footer .social-links a:hover {
   color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color) 90%, black 15%);
+  background-color: #23282c;
 }
 
 .footer h4 {
@@ -579,7 +579,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color: #2e3e4b;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -593,7 +593,7 @@ h6 {
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background-color: #2a3136;
   color: var(--contrast-color);
 }
 
@@ -995,7 +995,7 @@ section,
 }
 
 .call-to-action .cta-btn {
-  background: var(--accent-color);
+  background: #2e3e4b;
   color: var(--contrast-color);
   font-family: var(--heading-font);
   font-weight: 500;
