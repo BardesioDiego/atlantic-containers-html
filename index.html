@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,28 +66,80 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
+    <!-- Hero Section con texto estilo original + formulario a la derecha -->
+    <section id="hero" class="hero section dark-background"
+      style="background-color: #1f2e39; min-height: 100vh; display: flex; align-items: center;">
       <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
-
       <div class="container">
-        <div class="row">
-          <div class="col-xl-4">
-            <h1 data-aos="fade-up">Alquiler de
-              Contenedores</h1>
+        <div class="row align-items-center">
+
+          <!-- Columna izquierda: Tu estilo original -->
+          <div class="col-xl-4 text-white py-5">
+            <h1 data-aos="fade-up">Alquiler de Contenedores</h1><br>
+            <h3><strong>Planificar bien empieza por tener el espacio adecuado</strong></h3>
             <blockquote data-aos="fade-up" data-aos-delay="100">
-              <p>Las constructoras y estudios de arquitectura de Uruguay enfrentan robos y pérdidas por el clima.<br> 
-                Alquilá un contenedor seguro y protegido para evitar estos problemas. </p>
+              <p>Dirigir una obra desde el capó del coche no se compara con hacerlo desde una oficina modular, con
+                escritorio, conexión y café caliente.
+                La diferencia entre improvisar y planificar es una puerta que se cierra y un espacio donde pensar. Y eso
+                podés tenerlo donde quieras. Literalmente.</p>
             </blockquote>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">+ INFO</a>
             </div>
           </div>
+
+          <!-- Columna derecha: Formulario adaptado -->
+          <div class="col-xl-5 offset-xl-2 py-2">
+            <div class="p-4 p-md-5 rounded-4 shadow-lg mx-auto" style="max-width: 500px;">
+              <h2 class="mb-4">Contactanos</h2>
+              <form action="enviar.php" method="POST">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="tu@email.com">
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input type="text" class="form-control" id="telefono" name="telefono"
+                    placeholder="Tu número de teléfono">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Tipo de contacto</label><br>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoContacto" id="particular" value="particular">
+                    <label class="form-check-label" for="particular">Particular</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoContacto" id="empresa" value="empresa">
+                    <label class="form-check-label" for="empresa">Empresa</label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="empresaNombre" class="form-label">Nombre de la empresa</label>
+                  <input type="text" class="form-control" id="empresaNombre" name="empresaNombre"
+                    placeholder="Nombre de tu empresa">
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
+                    placeholder="Escribe aquí tu mensaje y serás contactado a la brevedad"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Solicitar presupuesto</button>
+              </form>
+
+            </div>
+          </div>
+
+
         </div>
       </div>
+    </section>
 
-    </section><!-- /Hero Section -->
+
+
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -104,7 +158,8 @@
             <div class="icon flex-shrink-0"><i class="bi bi-briefcase" style="color: #f57813;"></i></div>
             <div>
               <h4 class="title">¿Qué contenedor alquilar? </h4>
-              <p class="description">Depósito, pañol, obrador u oficina: te asesoramos para que alquiles el contenedor ideal.</p>
+              <p class="description">Depósito, pañol, obrador u oficina: te asesoramos para que alquiles el contenedor
+                ideal.</p>
             </div>
           </div>
           <!-- End Service Item -->
@@ -121,7 +176,8 @@
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart" style="color: #d90769;"></i></div>
             <div>
               <h4 class="title">Entrega inmediata y garantizada</h4>
-              <p class="description">Recibí tu contenedor al instante. Además, todos nuestros contenedores están en garantía.</p>
+              <p class="description">Recibí tu contenedor al instante. Además, todos nuestros contenedores están en
+                garantía.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -129,7 +185,8 @@
             <div class="icon flex-shrink-0"><i class="bi bi-binoculars" style="color: #15bfbc;"></i></div>
             <div>
               <h4 class="title">Seguridad en tu obra</h4>
-              <p class="description">Alquilá un contenedor y protegé materiales y equipos de robos, daños y acceso no autorizado.</p>
+              <p class="description">Alquilá un contenedor y protegé materiales y equipos de robos, daños y acceso no
+                autorizado.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -137,7 +194,8 @@
             <div class="icon flex-shrink-0"><i class="bi bi-brightness-high" style="color: #f5cf13;"></i></div>
             <div>
               <h4 class="title">Todo cubierto</h4>
-              <p class="description">Tus herramientas estarán a salvo de la lluvia en un espacio cerrado, seco y resistente.</p>
+              <p class="description">Tus herramientas estarán a salvo de la lluvia en un espacio cerrado, seco y
+                resistente.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -145,7 +203,8 @@
             <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week" style="color: #1335f5;"></i></div>
             <div>
               <h4 class="title">Contenedores con baño</h4>
-              <p class="description">Contenedor con baño: ducha, inodoro y lavamanos. Cumplí con MTSS y evitá alquilar baño químico.</p>
+              <p class="description">Contenedor con baño: ducha, inodoro y lavamanos. Cumplí con MTSS y evitá alquilar
+                baño químico.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -165,8 +224,10 @@
           <div class="col-xl-10">
             <div class="text-center">
               <h3>Alquilar un contenedor</h3>
-              <p>Las constructoras han comprobado lo crucial que es contar con un lugar seguro para guardar equipos y materiales.<br>
-                Además, alquilar un contenedor le da a tu obra un aspecto profesional, mejorando la imagen y seguridad de tu proyecto.</p>
+              <p>Las constructoras han comprobado lo crucial que es contar con un lugar seguro para guardar equipos y
+                materiales.<br>
+                Además, alquilar un contenedor le da a tu obra un aspecto profesional, mejorando la imagen y seguridad
+                de tu proyecto.</p>
               <a class="cta-btn" href="#">Solicitar presupuesto</a>
             </div>
           </div>
@@ -175,13 +236,13 @@
 
     </section><!-- /Call To Action Section -->
 
-      <!-- Clients Section -->
-      <section id="clients" class="clients section">
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-  
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
               {
                 "loop": true,
                 "speed": 600,
@@ -214,40 +275,50 @@
                 }
               }
             </script>
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_1.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_2.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_3.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_4.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_5.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_6.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_7.jpg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_8.jpeg" class="img-fluid" alt=""></div>
-              <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_9.jpg" class="img-fluid" alt=""></div>
-            </div>
-            <div class="swiper-pagination"></div>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_1.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_2.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_3.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_4.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_5.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_6.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_7.jpg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_8.jpeg" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/contenedor_en_ururuguay_9.jpg" class="img-fluid"
+                alt=""></div>
           </div>
-  
+          <div class="swiper-pagination"></div>
         </div>
-  
-      </section><!-- /Clients Section -->
 
-<!-- Why Us Section -->
-<section id="why-us" class="why-us section">
-
-  <div class="container">
-
-    <div class="row g-0">
-
-      <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/why-us-bg.jpg" alt="">
       </div>
 
-      <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
+    </section><!-- /Clients Section -->
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <div class="container">
+
+        <div class="row g-0">
+
+          <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/why-us-bg.jpg" alt="">
+          </div>
+
+          <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="swiper init-swiper">
+              <script type="application/json" class="swiper-config">
             {
               "loop": true,
               "speed": 600,
@@ -267,53 +338,62 @@
               }
             }
           </script>
-          <div class="swiper-wrapper">
+              <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
-              <div class="item">
-                <h3 class="mb-3">Let's grow your business together</h3>
-                <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem, dolorum.</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit doloribus quas sapiente optio.</p>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Let's grow your business together</h3>
+                    <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem,
+                      dolorum.</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam perferendis
+                      asperiores explicabo vel tempore velit totam, natus nesciunt accusantium dicta quod quibusdam
+                      ipsum maiores nobis non, eum. Ullam reiciendis dignissimos laborum aut, magni voluptatem velit
+                      doloribus quas sapiente optio.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
+                    <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
+                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum
+                      accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut
+                      repellat ea. Facere est dolores fugiat dolor.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Aliquid non alias minus</h3>
+                    <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
+                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut
+                      consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
+                  </div>
+                </div><!-- End slide item -->
+
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
+                    <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est.
+                      Eum similique neque autem ut.</h4>
+                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem
+                      et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
+                  </div>
+                </div><!-- End slide item -->
+
               </div>
-            </div><!-- End slide item -->
+              <div class="swiper-pagination"></div>
+            </div>
 
-            <div class="swiper-slide">
-              <div class="item">
-                <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
-                <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4>
-                <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime necessitatibus cum accusamus. Voluptatem dolorem ut numquam dolorum delectus autem veritatis facilis. Et ea ut repellat ea. Facere est dolores fugiat dolor.</p>
-              </div>
-            </div><!-- End slide item -->
-
-            <div class="swiper-slide">
-              <div class="item">
-                <h3 class="mb-3">Aliquid non alias minus</h3>
-                <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4>
-                <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut itaque velit. Aut consectetur voluptatem aspernatur sequi sit laborum. Voluptas enim dolorum fugiat aut.</p>
-              </div>
-            </div><!-- End slide item -->
-
-            <div class="swiper-slide">
-              <div class="item">
-                <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
-                <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est. Eum similique neque autem ut.</h4>
-                <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at voluptatem. Saepe dolorem et sed voluptate impedit. Ad et qui sint at qui animi animi rerum.</p>
-              </div>
-            </div><!-- End slide item -->
-
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
-          <div class="swiper-pagination"></div>
+
         </div>
 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
       </div>
 
-    </div>
-
-  </div>
-
-</section><!-- /Why Us Section -->
+    </section><!-- /Why Us Section -->
 
     <!-- Recent Posts Section -->
     <section id="recent-posts" class="recent-posts section">
@@ -336,8 +416,10 @@
                 <span class="post-author"> / Julia Parker</span>
               </div>
               <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-              <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa est officiis. Modi qui magni est...</p>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa
+                est officiis. Modi qui magni est...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
+                  class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -349,8 +431,10 @@
                 <span class="post-author"> / Mario Douglas</span>
               </div>
               <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-              <p>Voluptatem nesciunt omnis libero autem tempora enim ut ipsam id. Odit quia ab eum assumenda. Quisquam omnis doloribus...</p>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <p>Voluptatem nesciunt omnis libero autem tempora enim ut ipsam id. Odit quia ab eum assumenda. Quisquam
+                omnis doloribus...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
+                  class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -362,8 +446,10 @@
                 <span class="post-author"> / Lisa Hunter</span>
               </div>
               <h3 class="post-title">Quia assumenda est et veritati</h3>
-              <p>Quia nam eaque omnis explicabo similique eum quaerat similique laboriosam. Quis omnis repellat sed quae consectetur magnam...</p>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <p>Quia nam eaque omnis explicabo similique eum quaerat similique laboriosam. Quis omnis repellat sed quae
+                consectetur magnam...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
+                  class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -375,8 +461,10 @@
                 <span class="post-author"> / Mario Douglas</span>
               </div>
               <h3 class="post-title">Pariatur quia facilis similique deleniti</h3>
-              <p>Et consequatur eveniet nam voluptas commodi cumque ea est ex. Aut quis omnis sint ipsum earum quia eligendi...</p>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <p>Et consequatur eveniet nam voluptas commodi cumque ea est ex. Aut quis omnis sint ipsum earum quia
+                eligendi...</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
+                  class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -393,19 +481,21 @@
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4 align-items-start justify-content-between">
-          
+
           <div class="col-lg-5 col-md-12 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
               <span class="sitename">Nova</span>
             </a>
-            <p>Empresa uruguaya de alquiler de contenedores con más de 10 años de experiencia. Ofrecemos soluciones seguras, rápidas y eficientes para proyectos de todo tipo, con entrega inmediata y garantía en nuestros productos.</p>
+            <p>Empresa uruguaya de alquiler de contenedores con más de 10 años de experiencia. Ofrecemos soluciones
+              seguras, rápidas y eficientes para proyectos de todo tipo, con entrega inmediata y garantía en nuestros
+              productos.</p>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-facebook"></i></a>
               <a href=""><i class="bi bi-instagram"></i></a>
               <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
-  
+
           <div class="col-lg-5 d-flex justify-content-end flex-wrap">
             <div class="col-lg-4 col-6 footer-links">
               <h4>Menú</h4>
@@ -416,7 +506,7 @@
                 <li><a href="#">Testimonios</a></li>
               </ul>
             </div>
-  
+
             <div class="col-lg-6 col-12 footer-contact text-center text-md-start">
               <h4>Contactanos</h4>
               <p>Las Petuñas esq. El Algarrobo</p>
@@ -426,23 +516,25 @@
               <p><strong>Email:</strong> <span>ventas@atlanticcontainers.com.uy</span></p>
             </div>
           </div>
-  
+
         </div>
       </div>
     </div>
-  
+
     <div class="container copyright text-center">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+          href="https://themewagon.com">ThemeWagon</a>
       </div>
     </div>
-  
+
   </footer>
-  
+
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
