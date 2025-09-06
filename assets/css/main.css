@@ -769,8 +769,8 @@ section,
 }
 
 .hero .btn-get-started {
-  color: var(--contrast-color);
-  background: var(--accent-color);
+  color: #2e3e4b;
+  background: #fff;
   font-family: var(--heading-font);
   font-weight: 600;
   font-size: 14px;
@@ -809,6 +809,7 @@ section,
   color: var(--default-color);
 }
 
+
 @media (max-width: 640px) {
   .hero h1 {
     font-size: 28px;
@@ -819,6 +820,24 @@ section,
   .hero .btn-watch-video {
     font-size: 13px;
   }
+}
+
+.btn-custom {
+  background: #2e3e4b;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /*--------------------------------------------------------------
