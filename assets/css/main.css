@@ -2014,3 +2014,94 @@ section,
   color: var(--accent-color);
 }
 
+#why-us .item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: left;
+  max-width: 550px;
+  margin: auto;
+  position: relative;
+}
+
+#why-us .item p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+}
+
+#why-us .title-wrapper {
+  position: relative;
+  top: 100px;      /* mueve SOLO el título hacia abajo */
+  margin-bottom: 40px; /* espacio extra debajo del título */
+  text-align: center;
+}
+
+
+#why-us .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e3e4b;
+}
+
+
+@media (max-width: 991px) {
+  .footer .footer-links {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .footer .footer-links ul {
+    padding: 0;
+    display: inline-block; /* para que quede centrado */
+    text-align: left; /* los items quedan alineados entre sí */
+  }
+}
+
+/* Texto dentro del footer */
+footer p {
+  color: #2e3e4b !important;
+}
+
+/* Enlaces generales del footer (menos los de redes) */
+footer a {
+  color: #2e3e4b !important;
+  text-decoration: none;
+}
+
+/* Enlaces solo dentro de social-links */
+footer .social-links a {
+  color: #ffffff !important;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #cccccc !important; 
+}
+
+
+/** wpp link **/
+.float{
+  position:fixed;
+  width: 40px;
+  height: 40px;
+  background-color: #2e3e4b;
+  bottom: 5px;
+  left: 2px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 999;
+}
+.boton-wpp{
+  font-size: 25px;
+}
+.float:hover{
+  background-color: #27e76e;
+}

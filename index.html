@@ -36,6 +36,12 @@
 
 <body class="index-page">
 
+  <!-- wpp link-->
+  <a href="https://api.whatsapp.com/send?phone=59897324364&text=Hola quisiera más información" target="_blank"
+    class="float m-4">
+    <i class="bi bi-whatsapp boton-wpp"></i>
+  </a>
+
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -220,8 +226,8 @@
               <h3>Alquilar un contenedor</h3>
               <p>Las constructoras han comprobado lo crucial que es contar con un lugar seguro para guardar equipos y
                 materiales.<br>
-                Además, alquilar un contenedor le da a tu obra un aspecto profesional, mejorando la imagen y seguridad
-                de tu proyecto.</p>
+                Los que dicen "nunca pasa nada", después no encuentran el taladro.<br>
+                Con un módulo depósito, todo está donde debe estar. Y esta vez, sí es literal.</p>
               <a class="cta-btn" href="#">Solicitar presupuesto</a>
             </div>
           </div>
@@ -247,7 +253,7 @@
 
             <div class="faq-container">
 
-              <div class="faq-item faq-active">
+              <div class="faq-item">
                 <h3>¿Qué contenedor me conviene alquilar? </h3>
                 <div class="faq-content">
                   <p>Primero definamos el uso que le vas a dar. Los principales usos son: depósito, pañol, obrador u
@@ -379,69 +385,74 @@
 
         <div class="row g-0">
 
+          <!-- Imagen -->
           <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/img testimonios/testimonio1_atlantic_containers_alquiler_de_contenedores.png" alt="">
           </div>
 
+          <!-- Testimonios -->
           <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Título movido más abajo -->
+            <div class="title-wrapper">
+              <h2 class="section-title">Lo que nuestros <br> clientes dicen:</h2>
+            </div>
 
             <div class="swiper init-swiper">
               <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "centeredSlides": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              }
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": 1,
+            "centeredSlides": true,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            },
+            "navigation": {
+              "nextEl": ".swiper-button-next",
+              "prevEl": ".swiper-button-prev"
             }
+          }
           </script>
+
               <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
                   <div class="item">
-                    <h3 class="mb-3">Testimonios</h3>
                     <p>“Es cierto que los constructores tenemos que medir todos los gastos, pero estaba cansado de los
                       robos de herramientas y alquilar un contenedor/deposito terminó con ese problema.”</p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
 
                 <div class="swiper-slide">
                   <div class="item">
-                    <h3 class="mb-3">Testimonios</h3>
-                    <p>"En mi estudio apuntamos a la calidad. Cuando llega mi cliente y ve todos los materiales
-                      guardados en un contenedor sabe que su obra esta en buenas manos."</p>
+                    <p>“En mi estudio apuntamos a la calidad. Cuando llega mi cliente y ve todos los materiales
+                      guardados en un contenedor sabe que su obra está en buenas manos.” <br> <br></p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
 
                 <div class="swiper-slide">
                   <div class="item">
-                    <h3 class="mb-3">Testimonios</h3>
-                    <p>"Tenemos muchas obras por lo cual alquilo muchos contenedores. Llegan el día que lo preciso, lo
-                      retiran el día que no lo preciso mas. Estoy muy agradecido con Atlantic."</p>
+                    <p>“Tenemos muchas obras por lo cual alquilo muchos contenedores. Llegan el día que lo preciso, lo
+                      retiran el día que no lo preciso más. Estoy muy agradecido con Atlantic.”</p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
 
                 <div class="swiper-slide">
                   <div class="item">
-                    <h3 class="mb-3">Testimonios</h3>
-                    <p>"Realmente el dueño de la constructora ya no sabia que hacer con el robo de herramientas.
-                      Encontramos un servicio muy útil y que nos permite enfocarnos en lo nuestro. Terminar la obra
-                      rápido."</p>
+                    <p>“Realmente el dueño de la constructora ya no sabía qué hacer con el robo de herramientas.
+                      Encontramos un servicio muy útil y que nos permite enfocarnos en lo nuestro: terminar la obra
+                      rápido.”</p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
 
               </div>
+
               <div class="swiper-pagination"></div>
             </div>
 
@@ -475,8 +486,10 @@
               productos.</p>
             <div class="social-links d-flex mt-4">
               <a href="https://acortar.link/Qjhzx8" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/atlantic.containers/" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/atlantic-container-alquiler-contenedores/" target="_blank"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/atlantic.containers/" target="_blank"><i
+                  class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/atlantic-container-alquiler-contenedores/" target="_blank"><i
+                  class="bi bi-linkedin"></i></a>
             </div>
           </div>
 
