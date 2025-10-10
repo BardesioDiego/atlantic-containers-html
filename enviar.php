@@ -23,8 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Mensaje:\n$mensaje
   ";
 
-  // Guardar el contenido en un archivo (simulando envío de email)
-  file_put_contents("mensajes_recibidos.txt", $contenido . "\n------------------\n", FILE_APPEND);
+  // Dirección de destino (tu correo)
+$destinatario = "federicobasile@gmail.com";  // 
+$asunto = "Nuevo mensaje desde el formulario de contacto";
+
+// Encabezados del correo
+$headers = "From: $nombre <$email>\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+// Enviar correo
+if (mail($destinatario, $asunto, $contenido, $headers)) {
+  echo "<script>alert('¡Mensaje enviado correctamente!'); window.location.href = 'index.html';</script>";
+} else {
+  echo "<script>alert('Hubo un error al enviar el mensaje.'); window.location.href = 'index.html';</script>";
+}
+
 
   // Alerta y redirección
   echo "<script>alert('¡Mensaje simulado! Formulario funcionando.'); window.location.href = 'index.html';</script>";
