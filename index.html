@@ -93,24 +93,34 @@
           <div id="contacto" class="col-xl-5 offset-xl-2 py-2">
             <div class="p-4 p-md-5 rounded-4 shadow-lg mx-auto" style="max-width: 500px;">
               <h2 class="mb-4">Contactanos</h2>
-              <form action="enviar.php" method="POST">
+              <form action="enviar.php" method="POST" novalidate>
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre">
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required
+                    oninvalid="this.setCustomValidity('Por favor, ingresá tu nombre')" oninput="setCustomValidity('')">
                 </div>
+
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="tu@email.com">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="tu@email.com" required
+                    oninvalid="this.setCustomValidity('Por favor, ingresá un correo válido')"
+                    oninput="setCustomValidity('')">
                 </div>
+
                 <div class="mb-3">
                   <label for="telefono" class="form-label">Teléfono</label>
                   <input type="text" class="form-control" id="telefono" name="telefono"
-                    placeholder="Tu número de teléfono">
+                    placeholder="Tu número de teléfono" required
+                    oninvalid="this.setCustomValidity('Por favor, ingresá tu número de teléfono')"
+                    oninput="setCustomValidity('')">
                 </div>
+
                 <div class="mb-3">
                   <label class="form-label">Tipo de contacto</label><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tipoContacto" id="particular" value="particular">
+                    <input class="form-check-input" type="radio" name="tipoContacto" id="particular" value="particular"
+                      required oninvalid="this.setCustomValidity('Seleccioná el tipo de contacto')"
+                      oninput="setCustomValidity('')">
                     <label class="form-check-label" for="particular">Particular</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -118,20 +128,28 @@
                     <label class="form-check-label" for="empresa">Empresa</label>
                   </div>
                 </div>
+
                 <div class="mb-3">
                   <label for="empresaNombre" class="form-label">Nombre de la empresa</label>
                   <input type="text" class="form-control" id="empresaNombre" name="empresaNombre"
-                    placeholder="Nombre de tu empresa">
+                    placeholder="Nombre de tu empresa" required
+                    oninvalid="this.setCustomValidity('Por favor, ingresá el nombre de la empresa')"
+                    oninput="setCustomValidity('')">
                 </div>
+
                 <div class="mb-3">
                   <label for="mensaje" class="form-label">Mensaje</label>
                   <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
-                    placeholder="Escribe aquí tu mensaje y serás contactado a la brevedad"></textarea>
+                    placeholder="Escribí aquí tu mensaje y serás contactado a la brevedad" required
+                    oninvalid="this.setCustomValidity('Por favor, escribí un mensaje')"
+                    oninput="setCustomValidity('')"></textarea>
                 </div>
+
                 <div class="text-center">
                   <button type="submit" class="btn-custom">Solicitar presupuesto</button>
                 </div>
               </form>
+
 
             </div>
           </div>
@@ -167,17 +185,16 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-check" style="color: #2e3e4b; font-size: 3rem;"></i></div>
             <div>
-              <h4 class="title">Presupuesto al instante</h4>
-              <p class="description">En Atlantic te hacemos el presupuesto en el día, rápido y sin compromiso.</p>
+              <h4 class="title">Presupuesto personalizado</h4>
+              <p class="description">En Atlantic hacemos presupuestos acorde a las necesidades de tu proyecto.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-check" style="color: #2e3e4b; font-size: 3rem;"></i></div>
             <div>
-              <h4 class="title">Entrega inmediata y garantizada</h4>
-              <p class="description">Recibí tu contenedor al instante. Además, todos nuestros contenedores están en
-                garantía.</p>
+              <h4 class="title">Entrega rápida y garantizada</h4>
+              <p class="description">Recibí tu contenedor a tiempo para tu obra. Además, todos nuestros contenedores están en garantía.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -294,8 +311,7 @@
               <div class="faq-item">
                 <h3>¿El alquiler incluye el transporte?</h3>
                 <div class="faq-content">
-                  <p>Sí. Contamos con entrega inmediata y garantizada para que recibas tu contenedor al instante.
-                    Además, todos nuestros contenedores cuentan con garantía.</p>
+                  <p>Sí. También cotizamos la entrega del contenedor, acorde a los tiempos de tu obra. Y además, todos nuestros contenedores cuentan con garantía.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -425,7 +441,7 @@
                 <div class="swiper-slide">
                   <div class="item">
                     <p>“Es cierto que los constructores tenemos que medir todos los gastos, pero estaba cansado de los
-                      robos de herramientas y alquilar un contenedor/deposito terminó con ese problema.”</p>
+                      robos de herramientas y alquilar un contenedor/depósito terminó con ese problema.”</p>
                   </div>
                 </div>
 
