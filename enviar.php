@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $contenido .= "Mensaje:\n$mensaje\n";
 
   // 📬 Destinatario (podés poner el mismo o varios separados por coma)
-  $destinatario = "federicobasile@gmail.com";
+  $destinatario = "ventas@alquilerdecontenedor.com";
 
   // Asunto
   $asunto = "Nuevo mensaje desde el formulario de contacto";
