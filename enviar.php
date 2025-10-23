@@ -1,16 +1,16 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+
+// Cargar clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Asegurate de tener PHPMailer cargado
 require __DIR__ . '/PHPMailer-master/src/Exception.php';
 require __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer-master/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    // datos recibidos del formulario
     $nombre   = htmlspecialchars($_POST["nombre"] ?? '');
     $email    = htmlspecialchars($_POST["email"] ?? '');
     $telefono = htmlspecialchars($_POST["telefono"] ?? '');
@@ -31,18 +31,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor SMTP (Ethereal)
+        // Configuración del servidor SMTP (SiteGround)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.ethereal.email';
+        $mail->Host       = 'gtxm1126.siteground.biz';          // Servidor SMTP de SiteGround
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'jon.heidenreich41@ethereal.email'; // tu usuario Ethereal
-        $mail->Password   = 'N3zz9WEEEYp1P2tSq5';              // tu contraseña Ethereal
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Username   = 'ventas@alquilerdecontenedor.com';  // Tu correo
+        $mail->Password   = 'AQUI_TU_CONTRASEÑA_REAL';          // ⚠️ Contraseña del correo
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // Usar SSL
+        $mail->Port       = 465;                                // Puerto SSL
 
         // Remitente y destinatario
-        $mail->setFrom('jon.heidenreich41@ethereal.email', 'Formulario Web');
-        $mail->addAddress('jon.heidenreich41@ethereal.email', 'Prueba Ethereal'); // destino de prueba
+        $mail->setFrom('ventas@alquilerdecontenedor.com', 'Formulario Web - Alquiler de Contenedores');
+        $mail->addAddress('ventas@alquilerdecontenedor.com', 'Alquiler de Contenedores');
+
+        // Hacer que las respuestas vayan al correo del usuario
+        if (!empty($email)) {
+            $mail->addReplyTo($email, $nombre);
+        }
 
         // Contenido del correo
         $mail->isHTML(false);
@@ -52,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Enviar
         $mail->send();
 
-        echo "<script>alert('✅ Mensaje enviado correctamente (revisá tu bandeja en Ethereal)'); window.location.href = 'index.html';</script>";
+        echo "<script>alert('✅ Mensaje enviado correctamente. Gracias por contactarnos.'); window.location.href = 'index.html';</script>";
 
     } catch (Exception $e) {
         echo "<script>alert('❌ Error al enviar: {$mail->ErrorInfo}'); window.location.href = 'index.html';</script>";
@@ -63,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
 
 
 
