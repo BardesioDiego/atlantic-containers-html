@@ -37,7 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contenido .= "Mensaje:\n$mensaje\n";
 
     // Crear PHPMailer
+$mail = new PHPMailer(true);
+
+
+    // Crear PHPMailer
     $mail = new PHPMailer(true);
+
+    / ----------------------------------------------------
+// AÑADE ESTO PARA VER EL DIÁLOGO COMPLETO CON EL SERVIDOR
+$mail->SMTPDebug = 4; // 4: Muestra toda la conversación SMTP (DEBUG)
+$mail->Debugoutput = 'html'; // Muestra el output en HTML para el navegador
+// ----------------------------------------------------
 
     try {
         // Configuración del servidor SMTP
