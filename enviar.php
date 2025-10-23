@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // DATOS RECIBIDOS DEL FORMULARIO
     $nombre     = isset($_POST["nombre"]) ? htmlspecialchars(trim($_POST["nombre"])) : '';
     $email      = isset($_POST["email"]) ? htmlspecialchars(trim($_POST["email"])) : '';
-    $prefijo    = isset($_POST["prefijo"]) ? htmlspecialchars(trim($_POST["prefijo"])) : 'No especificado'; // Campo nuevo
     $telefono   = isset($_POST["telefono"]) ? htmlspecialchars(trim($_POST["telefono"])) : '';
     $tipo       = isset($_POST["tipoContacto"]) ? htmlspecialchars(trim($_POST["tipoContacto"])) : 'No especificado';
     $empresa    = isset($_POST["empresaNombre"]) ? htmlspecialchars(trim($_POST["empresaNombre"])) : '';
@@ -31,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contenido  = "Nuevo mensaje desde el formulario de contacto:\n\n";
     $contenido .= "Nombre: $nombre\n";
     $contenido .= "Email: $email\n";
-    $contenido .= "Teléfono: $prefijo $telefono\n"; // Combinamos Prefijo y Número
+    $contenido .= "Teléfono:$telefono\n"; // 
     $contenido .= "Tipo de contacto: $tipo\n";
     $contenido .= "Empresa: $empresa\n\n";
     $contenido .= "Mensaje:\n$mensaje\n";
