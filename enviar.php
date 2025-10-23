@@ -71,10 +71,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('✅ Mensaje enviado correctamente. Gracias por contactarnos.'); window.location.href = 'index.html';</script>";
 
     } catch (Exception $e) {
-        // En producción, solo un mensaje genérico para el usuario
-        error_log("Error al enviar correo: " . $e->getMessage() . " - " . $mail->ErrorInfo);
-        echo "<script>alert('❌ Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'); window.location.href = 'index.html';</script>";
-    }
+    // ESTA LÍNEA MUESTRA EL ERROR DETALLADO DE PHPMailer
+    error_log("Error al enviar correo: " . $e->getMessage() . " - " . $mail->ErrorInfo); 
+    
+    // CAMBIA ESTO (LÍNEA ORIGINAL):
+    // echo "<script>alert('❌ Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'); window.location.href = 'index.html';</script>";
+    
+    // POR ESTO (MUESTRA EL ERROR EN PANTALLA):
+    echo "<h1>ERROR AL ENVIAR EL MENSAJE:</h1>";
+    echo "<h2>" . $mail->ErrorInfo . "</h2>";
+    echo "<p>Vuelva a <a href='index.html'>la página principal</a>.</p>";
+  }
 
 } else {
     // Si alguien intenta acceder directamente a enviar.php
