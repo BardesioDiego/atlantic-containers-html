@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username   = 'ventas@alquilerdecontenedor.com';  // 
         $mail->Password   = 'Irigoitia';          // 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // 
-        $mail->Port       = 465;                                // 
+        $mail->Port       = 587;                                // 
 
         // Remitente y destinatario
         $mail->setFrom('ventas@alquilerdecontenedor.com', 'Formulario Web - Alquiler de Contenedores');
