@@ -77,13 +77,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('✅ Mensaje enviado correctamente. Gracias por contactarnos.'); window.location.href = 'index.html';</script>";
 
     } catch (Exception $e) {
-        // Error: Se muestra el error de PHPMailer
-        // En producción, es mejor solo registrar el error y mostrar un mensaje genérico.
-        error_log("PHPMailer Error Fatal: " . $mail->ErrorInfo); 
-        
+        echo '<!DOCTYPE html>
+              <html lang="es">
+              <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Error de Envío</title>
+                  <style>
+                      body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+                      h1 { color: #cc0000; }
+                      h2 { color: #333; font-size: 1em; }
+                      a { color: #007bff; text-decoration: none; }
+                  </style>
+              </head>
+              <body>';
+
         echo "<h1>ERROR AL ENVIAR EL MENSAJE:</h1>";
         echo "<h2>" . htmlspecialchars($mail->ErrorInfo) . "</h2>";
         echo "<p><a href='index.html'>Volver a la página principal</a></p>";
+
+        echo '</body></html>';
+        // -----------------------------------------------------------------
     }
 
 } else {
