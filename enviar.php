@@ -33,12 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Configuración del servidor SMTP (SiteGround)
         $mail->isSMTP();
-        $mail->Host       = 'gtxm1126.siteground.biz';          // Servidor SMTP de SiteGround
+        $mail->Host       = 'gtxm1126.siteground.biz';          // 
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'ventas@alquilerdecontenedor.com';  // Tu correo
-        $mail->Password   = 'AQUI_TU_CONTRASEÑA_REAL';          // ⚠️ Contraseña del correo
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // Usar SSL
-        $mail->Port       = 465;                                // Puerto SSL
+        $mail->Username   = 'ventas@alquilerdecontenedor.com';  // 
+        $mail->Password   = 'Irigoitia';          // 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // 
+        $mail->Port       = 465;                                // 
 
         // Remitente y destinatario
         $mail->setFrom('ventas@alquilerdecontenedor.com', 'Formulario Web - Alquiler de Contenedores');
