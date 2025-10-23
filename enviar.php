@@ -1,49 +1,68 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Asegurate de tener PHPMailer cargado
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  // Sanitización de datos
-  $nombre   = htmlspecialchars($_POST["nombre"]);
-  $email    = htmlspecialchars($_POST["email"]);
-  $telefono = htmlspecialchars($_POST["telefono"]);
-  $tipo     = isset($_POST["tipoContacto"]) ? htmlspecialchars($_POST["tipoContacto"]) : 'No especificado';
-  $empresa  = htmlspecialchars($_POST["empresaNombre"]);
-  $mensaje  = htmlspecialchars($_POST["mensaje"]);
+    $nombre   = htmlspecialchars($_POST["nombre"] ?? '');
+    $email    = htmlspecialchars($_POST["email"] ?? '');
+    $telefono = htmlspecialchars($_POST["telefono"] ?? '');
+    $tipo     = htmlspecialchars($_POST["tipoContacto"] ?? 'No especificado');
+    $empresa  = htmlspecialchars($_POST["empresaNombre"] ?? '');
+    $mensaje  = htmlspecialchars($_POST["mensaje"] ?? '');
 
-  // Cuerpo del mensaje
-  $contenido = "Nuevo mensaje desde el formulario de contacto:\n\n";
-  $contenido .= "Nombre: $nombre\n";
-  $contenido .= "Email: $email\n";
-  $contenido .= "Teléfono: $telefono\n";
-  $contenido .= "Tipo de contacto: $tipo\n";
-  $contenido .= "Empresa: $empresa\n\n";
-  $contenido .= "Mensaje:\n$mensaje\n";
+    // Contenido del mensaje
+    $contenido  = "Nuevo mensaje desde el formulario de contacto:\n\n";
+    $contenido .= "Nombre: $nombre\n";
+    $contenido .= "Email: $email\n";
+    $contenido .= "Teléfono: $telefono\n";
+    $contenido .= "Tipo de contacto: $tipo\n";
+    $contenido .= "Empresa: $empresa\n\n";
+    $contenido .= "Mensaje:\n$mensaje\n";
 
-  // 📬 Destinatario (podés poner el mismo o varios separados por coma)
-  $destinatario = "diegobardesio@gmail.com";
+    // Crear una nueva instancia de PHPMailer
+    $mail = new PHPMailer(true);
 
-  // Asunto
-  $asunto = "Nuevo mensaje desde el formulario de contacto";
+    try {
+        // Configuración del servidor SMTP (Ethereal)
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.ethereal.email';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'jon.heidenreich41@ethereal.email'; // tu usuario Ethereal
+        $mail->Password   = 'N3zz9WEEEYp1P2tSq5';              // tu contraseña Ethereal
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-  // 🧩 Encabezados configurados correctamente para SiteGround
-  $headers  = "From: Formulario Web <diegobardesio@gmail.com>\r\n";  // <-- este es el tuyo ✅
-  $headers .= "Reply-To: $email\r\n";  // así podés responder directamente al remitente
-  $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        // Remitente y destinatario
+        $mail->setFrom('jon.heidenreich41@ethereal.email', 'Formulario Web');
+        $mail->addAddress('jon.heidenreich41@ethereal.email', 'Prueba Ethereal'); // destino de prueba
 
-  // Envío
-  if (mail($destinatario, $asunto, $contenido, $headers)) {
-    echo "<script>alert('¡Mensaje enviado correctamente!'); window.location.href = 'index.html';</script>";
-  } else {
-    echo "<script>alert('Hubo un error al enviar el mensaje.'); window.location.href = 'index.html';</script>";
-  }
+        // Contenido del correo
+        $mail->isHTML(false);
+        $mail->Subject = 'Nuevo mensaje desde el formulario de contacto';
+        $mail->Body    = $contenido;
+
+        // Enviar
+        $mail->send();
+
+        echo "<script>alert('✅ Mensaje enviado correctamente (revisá tu bandeja en Ethereal)'); window.location.href = 'index.html';</script>";
+
+    } catch (Exception $e) {
+        echo "<script>alert('❌ Error al enviar: {$mail->ErrorInfo}'); window.location.href = 'index.html';</script>";
+    }
 
 } else {
-  header("Location: index.html");
-  exit();
+    header("Location: index.html");
+    exit();
 }
 ?>
+
+
 
 
 
