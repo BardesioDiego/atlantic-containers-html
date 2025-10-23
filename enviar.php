@@ -58,7 +58,7 @@ $mail->Debugoutput = 'html'; // Muestra el output en HTML para el navegador
         $mail->Password   = SMTP_PASS;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
-        $mail->Timeout    = 60;
+        $mail->Timeout    = 120;
 
         // Remitente y destinatario
         $mail->setFrom(SMTP_USER, 'Formulario Web - Atlantic Containers');
