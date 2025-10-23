@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // MODO DEBUG - SOLO PARA PRUEBAS (Cambiar a 0 cuando funcione)
-        $mail->SMTPDebug = 2; 
+        
+        $mail->SMTPDebug = 0; 
 
         // Configuración del servidor SMTP (Usando las constantes de config.php)
         $mail->isSMTP();
@@ -51,12 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username = SMTP_USER;
         $mail->Password = SMTP_PASS;
 
-        // Cifrado y Puerto
-        // NOTA: Usar ENCRYPTION_STARTTLS para Puerto 587
-        //       Usar ENCRYPTION_SMTPS para Puerto 465
+       
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mail->Port     = SMTP_PORT; 
         
+        $mail->Timeout = 60; 
+        $mail->send();
+
         // Remitente y Destinatario
         $mail->setFrom(SMTP_USER, 'Formulario Web - Atlantic Containers'); 
         $mail->addAddress(SMTP_USER, 'Atlantic Containers'); 
