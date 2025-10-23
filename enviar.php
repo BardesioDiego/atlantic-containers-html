@@ -22,13 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $contenido .= "Mensaje:\n$mensaje\n";
 
   // 📬 Destinatario (podés poner el mismo o varios separados por coma)
-  $destinatario = "ventas@alquilerdecontenedor.com";
+  $destinatario = "diegobardesio@gmail.com";
 
   // Asunto
   $asunto = "Nuevo mensaje desde el formulario de contacto";
 
   // 🧩 Encabezados configurados correctamente para SiteGround
-  $headers  = "From: Formulario Web <ventas@alquilerdecontenedor.com>\r\n";  // <-- este es el tuyo ✅
+  $headers  = "From: Formulario Web <diegobardesio@gmail.com>\r\n";  // <-- este es el tuyo ✅
   $headers .= "Reply-To: $email\r\n";  // así podés responder directamente al remitente
   $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
