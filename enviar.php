@@ -1,9 +1,10 @@
 <?php
 // ====================================================================
-// Mostrar errores PHP en el navegador (útil para depuración)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Mostrar errores PHP en el navegador (opcional para producción)
+// Se recomienda DESACTIVAR en producción para mayor seguridad.
+ini_set('display_errors', 0); // Desactivar la visualización de errores
+ini_set('display_startup_errors', 0);
+error_reporting(0); // No reportar errores al usuario
 // ====================================================================
 
 // 1. Incluir configuración y librerías
@@ -19,7 +20,7 @@ use PHPMailer\PHPMailer\Exception;
 // 2. Procesar el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Datos recibidos
+    // Datos recibidos (Usando el operador de fusión de null ?? para seguridad)
     $nombre     = htmlspecialchars(trim($_POST["nombre"] ?? ''));
     $email      = htmlspecialchars(trim($_POST["email"] ?? ''));
     $telefono   = htmlspecialchars(trim($_POST["telefono"] ?? ''));
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $empresa    = htmlspecialchars(trim($_POST["empresaNombre"] ?? ''));
     $mensaje    = htmlspecialchars(trim($_POST["mensaje"] ?? ''));
 
-    // Cuerpo del mensaje
+    // Cuerpo del mensaje (Formato de texto plano)
     $contenido  = "Nuevo mensaje desde el formulario de contacto:\n\n";
     $contenido .= "Nombre: $nombre\n";
     $contenido .= "Email: $email\n";
@@ -36,58 +37,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contenido .= "Empresa: $empresa\n\n";
     $contenido .= "Mensaje:\n$mensaje\n";
 
-    // Crear PHPMailer
-$mail = new PHPMailer(true);
-
-
-    // Crear PHPMailer
+    // Crear PHPMailer (el 'true' habilita excepciones para manejo de errores)
     $mail = new PHPMailer(true);
 
-    / ----------------------------------------------------
-// AÑADE ESTO PARA VER EL DIÁLOGO COMPLETO CON EL SERVIDOR
-$mail->SMTPDebug = 4; // 4: Muestra toda la conversación SMTP (DEBUG)
-$mail->Debugoutput = 'html'; // Muestra el output en HTML para el navegador
-// ----------------------------------------------------
-
     try {
-        // Configuración del servidor SMTP
+        // --- CONFIGURACIÓN SMTP (Opción Hostinger/465/SSL) ---
         $mail->isSMTP();
         $mail->SMTPAuth   = true;
-        $mail->Host       = SMTP_HOST;
-        $mail->Username   = SMTP_USER;
-        $mail->Password   = SMTP_PASS;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
-        $mail->Timeout    = 120;
+        $mail->Host       = SMTP_HOST; // smtp.hostinger.com
+        $mail->Username   = SMTP_USER; // ventas@...
+        $mail->Password   = SMTP_PASS; // La clave
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL/TLS
+        $mail->Port       = 465;
+        $mail->Timeout    = 120; // Tiempo de espera aumentado a 120s
+
+        // --------------------------------------------------------------------------------
+        // ** NOTA:** Si el envío sigue fallando, cambie las 3 líneas de arriba por:
+        // $mail->isMail();
+        // --------------------------------------------------------------------------------
 
         // Remitente y destinatario
         $mail->setFrom(SMTP_USER, 'Formulario Web - Atlantic Containers');
-        $mail->addAddress(EMAIL_TO);
+        $mail->addAddress(EMAIL_TO); // Destinatario final
 
-        // Responder al remitente
+        // Responder al remitente (Si el usuario proporcionó un email)
         if (!empty($email)) {
             $mail->addReplyTo($email, $nombre);
         }
 
         // Contenido del correo
-        $mail->isHTML(false);
+        $mail->isHTML(false); // Envío en formato de texto plano
         $mail->Subject = 'Nuevo mensaje desde el formulario de contacto';
         $mail->Body    = $contenido;
 
         // Enviar mensaje
         $mail->send();
 
-        // Éxito
+        // Éxito: Mensaje de alerta y redirección
         echo "<script>alert('✅ Mensaje enviado correctamente. Gracias por contactarnos.'); window.location.href = 'index.html';</script>";
 
     } catch (Exception $e) {
-        // Error en el envío
+        // Error: Se muestra el error de PHPMailer
+        // En producción, es mejor solo registrar el error y mostrar un mensaje genérico.
+        error_log("PHPMailer Error Fatal: " . $mail->ErrorInfo); 
+        
         echo "<h1>ERROR AL ENVIAR EL MENSAJE:</h1>";
         echo "<h2>" . htmlspecialchars($mail->ErrorInfo) . "</h2>";
         echo "<p><a href='index.html'>Volver a la página principal</a></p>";
     }
 
 } else {
+    // Si acceden directamente al script, redirigir a la página principal
     header("Location: index.html");
     exit();
 }
