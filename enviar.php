@@ -1,11 +1,9 @@
 <?php
 
-// --- INICIO: Agregar estas 3 líneas ---
+// 1. CÓDIGO DE DEPURACIÓN (Debe ir primero para mostrar errores)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-// --- FIN: Agregar estas 3 líneas ---
-
 
 // 1. Incluir el archivo de configuración con las credenciales
 require 'config.php'; 
