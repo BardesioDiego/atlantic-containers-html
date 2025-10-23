@@ -165,3 +165,30 @@
       faqItem.parentNode.classList.toggle('faq-active');
     });
   });
+
+  // Función para mostrar/ocultar y manejar la obligatoriedad del campo "Nombre de la empresa"
+  function toggleEmpresa(action) {
+    const empresaGroup = document.getElementById('empresaGroup');
+    const empresaInput = document.getElementById('empresaNombre');
+
+    if (action === 'show') {
+      empresaGroup.style.display = 'block';
+      empresaInput.setAttribute('required', 'required');
+      empresaInput.setCustomValidity('Por favor, ingresá el nombre de la empresa'); // Establece validación custom
+    } else {
+      empresaGroup.style.display = 'none';
+      empresaInput.removeAttribute('required');
+      empresaInput.setCustomValidity(''); // Limpia la validación para que no bloquee el envío
+    }
+  }
+  
+  // Ocultar al cargar la página si no hay nada seleccionado (o por defecto si el tipo es particular)
+  document.addEventListener('DOMContentLoaded', () => {
+    const particularRadio = document.getElementById('particular');
+    const empresaRadio = document.getElementById('empresa');
+    
+    // Asumir que particular es la opción predeterminada al cargar
+    if (!empresaRadio.checked) {
+        toggleEmpresa('hide');
+    }
+  });

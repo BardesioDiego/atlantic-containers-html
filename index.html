@@ -73,8 +73,6 @@
       <img src="assets/img/img_home_atlantic_containers_alquiler_de_contenedores.png" alt="" data-aos="fade-in">
       <div class="container">
         <div class="row align-items-center">
-
-          <!-- Columna izquierda: Tu estilo original -->
           <div class="col-xl-4 text-white py-5">
             <h1 data-aos="fade-up">Alquiler de Contenedores</h1><br>
             <h3><strong>Planificar bien empieza por tener el espacio adecuado</strong></h3>
@@ -89,11 +87,11 @@
             </div>
           </div>
 
-          <!-- Columna derecha: Formulario adaptado -->
           <div id="contacto" class="col-xl-5 offset-xl-2 py-2">
             <div class="p-4 p-md-5 rounded-4 shadow-lg mx-auto" style="max-width: 500px;">
               <h2 class="mb-4">Contactanos</h2>
               <form action="enviar.php" method="POST" novalidate>
+
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
                   <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required
@@ -109,10 +107,11 @@
 
                 <div class="mb-3">
                   <label for="telefono" class="form-label">Teléfono</label>
-                  <input type="text" class="form-control" id="telefono" name="telefono"
-                    placeholder="Tu número de teléfono" required
-                    oninvalid="this.setCustomValidity('Por favor, ingresá tu número de teléfono')"
-                    oninput="setCustomValidity('')">
+                  <input type="tel" class="form-control" id="telefono" name="telefono"
+                    placeholder="Tu número de teléfono" required pattern="\d*"
+                    title="Sólo se permiten números."
+                    oninput="this.value = this.value.replace(/[^0-9+]/g, ''); setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Por favor, ingresá solo números de teléfono')">
                 </div>
 
                 <div class="mb-3">
@@ -120,21 +119,20 @@
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="tipoContacto" id="particular" value="particular"
                       required oninvalid="this.setCustomValidity('Seleccioná el tipo de contacto')"
-                      oninput="setCustomValidity('')">
+                      oninput="setCustomValidity(''); toggleEmpresa('hide')">
                     <label class="form-check-label" for="particular">Particular</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tipoContacto" id="empresa" value="empresa">
+                    <input class="form-check-input" type="radio" name="tipoContacto" id="empresa" value="empresa"
+                      onchange="toggleEmpresa('show')">
                     <label class="form-check-label" for="empresa">Empresa</label>
                   </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3" id="empresaGroup" style="display: none;">
                   <label for="empresaNombre" class="form-label">Nombre de la empresa</label>
                   <input type="text" class="form-control" id="empresaNombre" name="empresaNombre"
-                    placeholder="Nombre de tu empresa" required
-                    oninvalid="this.setCustomValidity('Por favor, ingresá el nombre de la empresa')"
-                    oninput="setCustomValidity('')">
+                    placeholder="Nombre de tu empresa">
                 </div>
 
                 <div class="mb-3">
@@ -150,11 +148,8 @@
                 </div>
               </form>
 
-
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
