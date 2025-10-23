@@ -59,6 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Remitente y Destinatario
         $mail->setFrom(SMTP_USER, 'Formulario Web - Atlantic Containers'); 
+    var_dump(file_exists('config.php'));
+require 'config.php';
+var_dump(isset($destinatario), $destinatario);
+die();
+
         $mail->addAddress(EMAIL_TO); 
 
         // Hacer que las respuestas vayan al correo del usuario
