@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Configuración del servidor SMTP (Usando las constantes de config.php)
         $mail->isSMTP();
+        $mail->SMTPAuth = true;
     $mail->Host    = SMTP_HOST;
     $mail->SMTPAuth  = true;
     $mail->Username  = SMTP_USER;
