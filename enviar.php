@@ -43,12 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Configuración del servidor SMTP (Usando las constantes de config.php)
         $mail->isSMTP();
-        $mail->Host       = SMTP_HOST; // <-- Constante
-        $mail->SMTPAuth   = true;
-        $mail->Username   = SMTP_USER; // <-- Constante
-        $mail->Password   = SMTP_PASS; // <-- Constante
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = SMTP_PORT; // <-- Constante
+    $mail->Host    = SMTP_HOST;
+    $mail->SMTPAuth  = true;
+    $mail->Username  = SMTP_USER;
+    $mail->Password  = SMTP_PASS;
+
+    // CAMBIO CRÍTICO: Usamos TLS para el puerto 587
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+    
+    $mail->Port    = SMTP_PORT; // // <-- Constante
 
         // Remitente y destinatario (Usamos la constante)
         $mail->setFrom(SMTP_USER, 'Formulario Web - Alquiler de Contenedores'); 
